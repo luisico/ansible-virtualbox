@@ -1,2 +1,31 @@
 ---
-# tasks file for virtualbox
+
+- name: Add base repository for VirtualBox
+  yum_repository: name='virtualbox' description='VirtualBox' baseurl='{{virtual_
+box_url}}' gpgcheck=yes gpgkey=https://www.virtualbox.org/download/oracle_vbox.a
+sc enabled=yes state=present
+  when: ansible_distribution == 'RedHat'
+
+- name: install dependencies if needed
+  yum: pkg={{ item }} state=latest
+  with_items:
+  - binutils
+  - qt
+  - gcc
+  - make
+  - patch
+  - libgomp
+  - glibc-headers
+  - glibc-devel
+  - kernel-headers
+  - kernel-devel
+  - dkms
+
+- name: install Virtualbox package from Virtualbox Repository
+  yum: state=present name={{ item }}
+  with_items:
+  - VirtualBox-5.1
+
+- name: rebuild the kernel for VirtualBox drivers
+  command: /usr/lib/virtualbox/vboxdrv.sh setup
+

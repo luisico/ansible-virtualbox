@@ -1,2 +1,5 @@
 ---
-# defaults file for virtualbox
+# Repositories
+virtual_box_url: 'http://download.virtualbox.org/virtualbox/rpm/el/$releasever/$
+basearch'
+
