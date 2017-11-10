@@ -15,7 +15,7 @@ The location of the URL needed to install the repository is listed in the defaul
 Dependencies
 ------------
 
-At this time there are no other dependant roles in Galaxy.
+Make sure EPEL is available, ie using role `geerlingguy.repo-epel`. It is needed to install some packages needed for rebuilding VirtualBox drivers, ie `dkms`.
 
 Example Playbook
 ----------------
