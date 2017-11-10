@@ -16,7 +16,7 @@
   - glibc-headers
   - glibc-devel
   - kernel-headers
-  - kernel-devel
+  - kernel-devel-{{ansible_kernel}}
   - dkms
 
 - name: install Virtualbox package from Virtualbox Repository
