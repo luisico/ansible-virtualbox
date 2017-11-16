@@ -1,7 +1,7 @@
 ---
 
 - name: Add base repository for VirtualBox
-  yum_repository: name='virtualbox' description='VirtualBox' baseurl='{{virtual_box_url}}' gpgcheck=yes gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc enabled=yes state=present
+  yum_repository: name='virtualbox' description='VirtualBox' baseurl='{{virtualbox_url}}' gpgcheck=yes gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc enabled=yes state=present
   when: ansible_distribution == 'RedHat'
 
 - name: install dependencies if needed
