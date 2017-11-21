@@ -10,7 +10,7 @@
     - make
     - kernel-devel-{{ansible_kernel}}
     - dkms
-    # Note: Addint dkms at this step will rebuild the kernel module when installing Vbox in the next step
+    # Note: Adding dkms at this step will rebuild the kernel module when installing Vbox in the next step
 
 - name: install Virtualbox package from Virtualbox Repository
   yum: state=present name={{ item }}

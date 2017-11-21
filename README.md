@@ -1,28 +1,34 @@
-Role Name
-=========
+Virtualbox
+==========
+An ansible role to install VirtualBox.
 
-An ansible role to install add the VirtualBox repository, install the VirtualBoxsoftware and rebuild the kernel with the needed driver
+The role adds the VirtualBox repository, installs the VirtualBox software and rebuilds the kernel with the needed driver.
 
 Requirements
 ------------
-All required packages are included in the tasks/main.yml file.
+See `meta/main.yml`.
 
 Role Defaults
 --------------
-
-The location of the URL needed to install the repository is listed in the defauls/main.yml file
+See `defaults/main.yml`.
 
 Dependencies
 ------------
-
 Make sure EPEL is available, ie using role `geerlingguy.repo-epel`. It is needed to install some packages needed for rebuilding VirtualBox drivers, ie `dkms`.
 
 Example Playbook
 ----------------
+Example:
+```
+- hosts: servers
+  roles:
+    - geerlingguy.repo-epel
+    - virtualbox
+```
 
-    - hosts: servers
-      roles:
-         - virtualbox
+TODO
+----
+None.
 
 License
 -------
@@ -31,7 +37,8 @@ BSD
 
 Author Information
 ------------------
-
 Robin Bruckenstein-Kowitz (robin@rockefeller.edu)
-Luis Gracia  (lgracia@rockefeller.edu)
-The Rockefeller University
+Luis Gracia while at [EMBL-EBI](http://www.ebi.ac.uk/):
+- luis.gracia [at] ebi.ac.uk
+- GitHub at [luisico](https://github.com/luisico)
+- Galaxy at [luisico](https://galaxy.ansible.com/luisico)
