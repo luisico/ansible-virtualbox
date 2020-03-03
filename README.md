@@ -2,7 +2,7 @@ Virtualbox
 ==========
 An ansible role to install VirtualBox.
 
-The role adds the VirtualBox repository, installs the VirtualBox software and rebuilds the kernel with the needed driver.
+The role adds the VirtualBox repository, installs the VirtualBox software and rebuilds the kernel with the needed driver. Vagrant is also installed by default. Blank `virtualbox_vagrant_url` to avoid installing Vagrant.
 
 Requirements
 ------------
