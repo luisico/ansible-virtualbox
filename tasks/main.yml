@@ -1,28 +1,27 @@
 ---
-
 - name: Add base repository for VirtualBox
-  yum_repository: name='virtualbox' description='VirtualBox' baseurl='{{virtual_box_url}}' gpgcheck=yes gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc enabled=yes state=present
-  when: ansible_distribution == 'RedHat'
+  yum_repository: name='virtualbox' description='VirtualBox' baseurl='{{virtualbox_url}}' gpgcheck=yes gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc enabled=yes state=present
+  when: ansible_os_family == 'RedHat'
 
-- name: install dependencies if needed
-  yum: pkg={{ item }} state=latest
+- name: Install build dependencies
+  yum: name={{item}} state=present
   with_items:
-  - binutils
-  - qt
-  - gcc
-  - make
-  - patch
-  - libgomp
-  - glibc-headers
-  - glibc-devel
-  - kernel-headers
-  - kernel-devel-{{ansible_kernel}}
-  - dkms
+    - gcc
+    - make
+    - kernel-devel-{{ansible_kernel}}
+    - dkms
+    # Note: Adding dkms at this step will rebuild the kernel module when installing Vbox in the next step
 
-- name: install Virtualbox package from Virtualbox Repository
-  yum: state=present name={{ item }}
-  with_items:
-  - VirtualBox-5.1
+- name: Install Virtualbox
+  yum: state=present name=VirtualBox-5.1
 
-- name: rebuild the kernel for VirtualBox drivers
-  command: /usr/lib/virtualbox/vboxdrv.sh setup
+- name: Check if kernel module needs to be rebuilt
+  command: VBoxManage list vms
+  check_mode: no
+  changed_when: '"Please recompile the kernel module" in virtualbox__r_kernel.stdout'
+  register: virtualbox__r_kernel
+
+- name: Recompile kernel
+  command: /sbin/vboxconfig
+  register: last
+  when: virtualbox__r_kernel.changed
