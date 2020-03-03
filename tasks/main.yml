@@ -13,7 +13,7 @@
     # Note: Adding dkms at this step will rebuild the kernel module when installing Vbox in the next step
 
 - name: Install Virtualbox
-  yum: state=present name=VirtualBox-5.1
+  yum: state=present name=VirtualBox-{{virtualbox_version}}
 
 - name: Check if kernel module needs to be rebuilt
   command: VBoxManage list vms

@@ -2,4 +2,7 @@
 # Repositories
 virtualbox_url: 'http://download.virtualbox.org/virtualbox/rpm/el/$releasever/$basearch'
 virtualbox_vagrant_url: https://releases.hashicorp.com/vagrant/{{virtualbox_vagrant_version}}/vagrant_{{virtualbox_vagrant_version}}_x86_64.rpm
+
+# Versions
+virtualbox_version: 6.1
 virtualbox_vagrant_version: 2.2.7
