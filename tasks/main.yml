@@ -25,3 +25,5 @@
   command: /sbin/vboxconfig
   register: last
   when: virtualbox__r_kernel.changed
+
+- include: vagrant.yml
