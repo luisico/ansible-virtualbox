@@ -4,13 +4,14 @@
   when: ansible_os_family == 'RedHat'
 
 - name: Install build dependencies
-  yum: name={{item}} state=present
-  with_items:
-    - gcc
-    - make
-    - kernel-devel-{{ansible_kernel}}
-    - dkms
-    # Note: Adding dkms at this step will rebuild the kernel module when installing Vbox in the next step
+  yum:
+    name:
+      - gcc
+      - make
+      - kernel-devel-{{ansible_kernel}}
+      - dkms
+      # Note: Adding dkms at this step will rebuild the kernel module when installing Vbox in the next step
+    state: present
 
 - name: Install Virtualbox
   yum: state=present name=VirtualBox-{{virtualbox_version}}
