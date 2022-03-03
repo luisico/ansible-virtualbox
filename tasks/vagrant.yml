@@ -1,4 +1,6 @@
 ---
 - name: Install vagrant
-  yum: name='{{virtualbox_vagrant_url}}' state=present
+  yum:
+    name: '{{ virtualbox_vagrant_url }}'
+    state: present
   when: virtualbox_vagrant_url is defined and virtualbox_vagrant_url
