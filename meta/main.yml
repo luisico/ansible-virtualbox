@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: virtualbox
   author: Luis Gracia and Robin Bruckenstein-Kowitz
   description: Install VirtualBox
   company: The Rockefeller University
