@@ -26,19 +26,15 @@ Example:
     - virtualbox
 ```
 
-TODO
-----
-None.
-
 License
 -------
-
-BSD
+Released under the [MIT license](https://opensource.org/licenses/MIT).
 
 Author Information
 ------------------
-Robin Bruckenstein-Kowitz (robin@rockefeller.edu)
-Luis Gracia while at [EMBL-EBI](http://www.ebi.ac.uk/):
-- luis.gracia [at] ebi.ac.uk
+Luis Gracia while at [The Rockefeller University](https://www.rockefeller.edu):
+- lgracia [at] rockefeller.edu
 - GitHub at [luisico](https://github.com/luisico)
 - Galaxy at [luisico](https://galaxy.ansible.com/luisico)
+
+Robin Bruckenstein-Kowitz (robin@rockefeller.edu)
